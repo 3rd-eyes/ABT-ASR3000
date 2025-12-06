@@ -148,7 +148,6 @@ jobs:
         echo "release_tag=$(date +"%Y.%m.%d-%H%M-immortalwrt24.10-abt_asr3000-5.4")" >> $GITHUB_OUTPUT
         touch release.txt
         echo "abt_asr3000-237大功率固件" >> release.txt
-        echo "编译源码：https://github.com/padavanonly/immortalwrt-mt798x-6.6" >> release.txt
 
         echo "status=success" >> $GITHUB_OUTPUT
     
