@@ -46,6 +46,7 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        echo "USE_NX30PRO_EEPROM=${{ github.event.inputs.USE_NX30PRO_EEPROM }}" >> $GITHUB_ENV
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
         sudo docker image prune --all --force
         sudo -E apt-get -qq update
@@ -100,6 +101,14 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
+    - name: 设置是否使用 nx30pro eeprom
+      if: env.USE_NX30PRO_EEPROM == 'true'
+      run: |
+        mkdir openwrt/target/linux/mediatek/mt7981/base-files/lib/firmware
+        cp eeprom/nx30pro_eeprom.bin openwrt/target/linux/mediatek/mt7981/base-files/lib/firmware/MT7981_iPAiLNA_EEPROM.bin
+        sed -i 's/caldata_extract_mmc/# caldata_extract_mmc/' openwrt/target/linux/mediatek/mt7981/base-files/lib/preinit/90_extract_caldata
+        sed -i 's#./files/mt7981-default-eeprom/MT7981_iPAiLNA_EEPROM.bin##' openwrt/package/mtk/drivers/mt_wifi/Makefile
+    
     - name: Download package
       id: package
       run: |
