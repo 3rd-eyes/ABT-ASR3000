@@ -15,6 +15,12 @@ name: build-5.4-asr3000
 on:
   repository_dispatch:
   workflow_dispatch:
+    inputs:
+      USE_NX30PRO_EEPROM:
+        description: 'Use nx30pro eeprom'
+        required: true
+        default: true
+        type: boolean
 
 env:
   REPO_URL: https://github.com/3rd-eyes/immortalwrt-mt798x-6.6
