@@ -133,7 +133,7 @@ jobs:
       if: (!cancelled())
       run: df -hT
 
-    - name: 整理文件并重命名
+    - name: 整理文件
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
@@ -156,7 +156,6 @@ jobs:
         echo "release_tag=$(date +"%Y.%m.%d-%H%M-immortalwrt24.10-abt_asr3000-5.4")" >> $GITHUB_OUTPUT
         touch release.txt
         echo "abt_asr3000-237大功率固件" >> release.txt
-
         echo "status=success" >> $GITHUB_OUTPUT
     
     - name: 发布固件至Release
@@ -169,13 +168,13 @@ jobs:
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
         
-    - name: 删除过时工作流
+    - name: 删除工作流
       uses: Mattraks/delete-workflow-runs@main
       with:
         retain_days: 0
         keep_minimum_runs: 2
 
-    - name: 删除过时release
+    - name: 删除旧的release
       uses: dev-drprasad/delete-older-releases@master
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
