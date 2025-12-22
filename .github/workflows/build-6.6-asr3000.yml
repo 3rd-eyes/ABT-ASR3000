@@ -154,7 +154,6 @@ jobs:
         echo "release_tag=$(date +"%Y.%m.%d-%H%M-immortalwrt24.10-abt_asr3000-6.6")" >> $GITHUB_OUTPUT
         touch release.txt
         echo "abt_asr3000-237大功率固件" >> release.txt
-
         echo "status=success" >> $GITHUB_OUTPUT
     
     - name: 发布固件至Release
