@@ -24,4 +24,4 @@ sed -i "s/ImmortalWrt-5G/ASR3000-5G/g" package/mtk/applications/mtwifi-cfg/files
 sed -i '/^exit 0$/i sed -i "s,mt7981,filogic,g" "package/base-files/files/etc/opkg/distfeeds.conf"\nsed -i '\''/passwall/d'\'' "package/base-files/files/etc/opkg/distfeeds.conf"' package/emortal/default-settings/files/99-default-settings-chinese
 
 # 固件版本名称自定义
-sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='ImmortalWrt By 3rd-eyes $(date +"%Y%m%d") '/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='ImmortalWrt By 3rd-eyes $(date +"%Y%m%d")'/g" package/base-files/files/etc/openwrt_release
