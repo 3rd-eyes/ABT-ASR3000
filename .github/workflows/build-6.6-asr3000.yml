@@ -90,8 +90,8 @@ jobs:
 
     - name: 更新feeds
       run: |
-         cd openwrt
-         ./scripts/feeds update -a
+        cd openwrt
+        ./scripts/feeds update -a
          
     - name: 安装feeds
       run: |
