@@ -19,7 +19,7 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
   REPO_URL: https://github.com/3rd-eyes/immortalwrt-mt798x-6.6
-  REPO_BRANCH: bump-mtk-test
+  REPO_BRANCH: 2410
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: configs/5.4-asr3000.config
   DIY_P1_SH: scripts/diy-part1.sh
