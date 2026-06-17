@@ -80,13 +80,6 @@ jobs:
       with:
         ccache: 'true'
         prefix: ${{ github.workspace }}/openwrt
-    
-    - name: 加载feeds.conf.default & DIY_P1_SH
-      run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-        chmod +x $DIY_P1_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: 更新feeds
       run: |
@@ -109,14 +102,6 @@ jobs:
         # 移除 openwrt feeds 过时的luci版本
         rm -rf feeds/luci/applications/luci-app-passwall
         git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
-    
-    - name: 加载config & DIY_P2_SH
-      run: |
-        [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_P2_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P2_SH
     
     - name: 下载安装包
       id: package
