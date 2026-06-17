@@ -18,8 +18,8 @@ on:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-  REPO_URL: https://github.com/Yuzhii0718/immortalwrt-mt798x-hanwckf
-  REPO_BRANCH: openwrt-21.02
+  REPO_URL: https://github.com/chasey-dev/immortalwrt-mt798x-rebase
+  REPO_BRANCH: rework-21.02
   FEEDS_CONF:
   CONFIG_FILE: configs/test.config
   DIY_P1_SH:
